@@ -40,8 +40,6 @@ function App() {
   }, [remaining]);
 
   const updateScore = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
     const value = event.currentTarget.innerText;
     const number = parseInt(value);
 
@@ -54,8 +52,17 @@ function App() {
     }
 
     if (number || number === 0 || value === "Bull") {
-      const score =
-        number * (double ? 2 : triple ? 3 : 1) || value === "Bull" ? 50 : 0;
+      let score = number * (double ? 2 : triple ? 3 : 1);
+
+      if (value === "Bull") {
+        score = 25 * 2;
+      }
+
+      if (number === 0) {
+        score = 0;
+      }
+
+      console.log(score);
 
       // prevent negative score
       if (remaining - score < 0) {
