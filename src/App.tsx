@@ -97,10 +97,11 @@ function App() {
 
     if (value === "Undo") {
       const lastScore = currentRound.scores.pop();
-      setRemaining(remaining + lastScore);
+      const lastScoreValue = lastScore || 0;
+      setRemaining(remaining + lastScoreValue);
       setCurrentRound({
         scores: currentRound.scores,
-        remaining: remaining + lastScore,
+        remaining: remaining + lastScoreValue,
       });
 
       if (currentRound.scores.length === 0) {
