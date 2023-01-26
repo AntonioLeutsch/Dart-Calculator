@@ -1,0 +1,47 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.key {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.key__double {
+  background-color: yellow;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.key__triple {
+  background-color: orange;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.key__bull {
+  background-color: red;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.key__revert {
+  background-color: lightgray;
+  color: rgba(0, 0, 0, 0.75);
+}

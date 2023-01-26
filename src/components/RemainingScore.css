@@ -1,0 +1,28 @@
+header {
+  --header-background-color: #1a1a1a;
+  --header-border-color: #1a1a1a;
+  background-color: var(--header-background-color);
+  padding: 1rem 1rem 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--header-border-color);
+}
+
+header .heading {
+  font-size: 0.875rem;
+}
+
+@media (prefers-color-scheme: light) {
+  header {
+    --header-background-color: #f5f5f5;
+    --header-border-color: #c7c7c7;
+  }
+}

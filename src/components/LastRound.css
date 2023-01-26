@@ -1,0 +1,28 @@
+.last-round {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 150px;
+  margin-bottom: 0.5rem;
+}
+
+.last-round__score {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.last-round__score:first-of-type {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-right: 0;
+}
+
+.last-round__score:last-of-type {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-left: 0;
+}
