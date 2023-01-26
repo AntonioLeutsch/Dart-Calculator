@@ -46,29 +46,16 @@ function App() {
     const number = parseInt(value);
 
     if (value === "Double") {
-      setDouble(true);
+      setDouble(!double);
     }
 
     if (value === "Triple") {
-      setTriple(true);
+      setTriple(!triple);
     }
 
-    if (value === "Bull") {
-      // prevent negative score
-      if (remaining - 50 < 0) {
-        throwBusted();
-        return;
-      }
-
-      setRemaining(remaining - 50);
-      setCurrentRound({
-        scores: [...currentRound.scores, 50],
-        remaining: remaining - 50,
-      });
-    }
-
-    if (number || number === 0) {
-      const score = number * (double ? 2 : triple ? 3 : 1) || 0;
+    if (number || number === 0 || value === "Bull") {
+      const score =
+        number * (double ? 2 : triple ? 3 : 1) || value === "Bull" ? 50 : 0;
 
       // prevent negative score
       if (remaining - score < 0) {
@@ -121,7 +108,12 @@ function App() {
       <LastRound currentRound={currentRound} />
       <RemainingScore remaining={remaining} />
       <main>
-        <Keyboard handleClick={updateScore} canUndo={canUndo} />
+        <Keyboard
+          handleClick={updateScore}
+          canUndo={canUndo}
+          isTriple={triple}
+          isDouble={double}
+        />
       </main>
     </div>
   );

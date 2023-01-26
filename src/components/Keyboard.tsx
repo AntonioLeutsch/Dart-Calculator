@@ -5,9 +5,13 @@ import "./Keyboard.css";
 export function Keyboard({
   handleClick,
   canUndo,
+  isTriple,
+  isDouble,
 }: {
   handleClick: (event: MouseEvent<HTMLButtonElement>) => void;
   canUndo: boolean;
+  isTriple: boolean;
+  isDouble: boolean;
 }) {
   const firstRow = [1, 2, 3, 4, 5, 6, 7, 8];
   const secondRow = [9, 10, 11, 12, 13, 14, 15];
@@ -17,6 +21,8 @@ export function Keyboard({
     event.preventDefault();
     handleClick(event);
   };
+
+  const disabledTwentyFive = isDouble || isTriple;
 
   return (
     /**
@@ -40,7 +46,12 @@ export function Keyboard({
       </div>
       <div className="row">
         {thirdRow.map((number) => (
-          <button onClick={handleClickEmitter} className="key" key={number}>
+          <button
+            disabled={(number === 25 || number === 0) && disabledTwentyFive}
+            onClick={handleClickEmitter}
+            className="key"
+            key={number}
+          >
             {number}
           </button>
         ))}
